@@ -1,0 +1,22 @@
+D:\Dropbox\proiect\WebApplication\bin\WebApplication.dll
+D:\Dropbox\proiect\WebApplication\bin\WebApplication.pdb
+D:\Dropbox\proiect\WebApplication\obj\Debug\WebApplication.dll
+D:\Dropbox\proiect\WebApplication\obj\Debug\WebApplication.pdb
+D:\Dropbox\proiect\WebApplication\bin\Conoisseur.Dal.dll
+D:\Dropbox\proiect\WebApplication\bin\Conoisseur.Dal.pdb
+D:\Dropbox\proiect\WebApplication\obj\Debug\ResolveAssemblyReference.cache
+D:\LTW proiect\WebApplication\bin\WebApplication.dll
+D:\LTW proiect\WebApplication\bin\WebApplication.pdb
+D:\LTW proiect\WebApplication\bin\Conoisseur.Dal.dll
+D:\LTW proiect\WebApplication\bin\Conoisseur.Dal.pdb
+D:\LTW proiect\WebApplication\obj\Debug\Conoisseur.csprojResolveAssemblyReference.cache
+D:\LTW proiect\WebApplication\obj\Debug\WebApplication.dll
+D:\LTW proiect\WebApplication\obj\Debug\WebApplication.pdb
+F:\FACULTATE\master 1\LTW proiect\WebApplication\bin\WebApplication.dll.config
+F:\FACULTATE\master 1\LTW proiect\WebApplication\bin\WebApplication.dll
+F:\FACULTATE\master 1\LTW proiect\WebApplication\bin\WebApplication.pdb
+F:\FACULTATE\master 1\LTW proiect\WebApplication\bin\Conoisseur.Dal.dll
+F:\FACULTATE\master 1\LTW proiect\WebApplication\bin\Conoisseur.Dal.pdb
+F:\FACULTATE\master 1\LTW proiect\WebApplication\obj\Debug\Conoisseur.csprojResolveAssemblyReference.cache
+F:\FACULTATE\master 1\LTW proiect\WebApplication\obj\Debug\WebApplication.dll
+F:\FACULTATE\master 1\LTW proiect\WebApplication\obj\Debug\WebApplication.pdb

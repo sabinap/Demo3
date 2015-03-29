@@ -1,0 +1,21 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/App_Master/Main.Master" AutoEventWireup="true"
+    CodeBehind="Menu.master.cs" Inherits="WebApplication.App_Master.Menu" %>
+
+<%@ Register TagPrefix="ucShoppingCart" TagName="ShoppingCart" Src="../UserControls/ShoppingCart.ascx" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">
+    <asp:ScriptManager ID="scriptManager" runat="server" EnablePartialRendering="true"
+        ClientIDMode="Static">
+    </asp:ScriptManager>
+    <div class="wrapper">
+        <div class="border">
+        </div>
+        <asp:ContentPlaceHolder ID="cphContent" runat="server">
+        </asp:ContentPlaceHolder>
+        <ucShoppingCart:ShoppingCart ID="shoppingCart" runat="server" />
+        <div class="border2">
+        </div>
+        <br>
+    </div>
+</asp:Content>

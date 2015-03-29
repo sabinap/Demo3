@@ -1,0 +1,5 @@
+D:\Dropbox\proiect\WebApplication\bin\WebApplication.dll
+D:\Dropbox\proiect\WebApplication\bin\WebApplication.pdb
+D:\Dropbox\proiect\WebApplication\obj\Debug\ResolveAssemblyReference.cache
+D:\Dropbox\proiect\WebApplication\obj\Debug\WebApplication.dll
+D:\Dropbox\proiect\WebApplication\obj\Debug\WebApplication.pdb

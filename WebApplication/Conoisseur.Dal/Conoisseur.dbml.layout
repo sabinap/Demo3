@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.75, 8.5" name="Conoisseur">
+  <DataContextMoniker Name="/ConoisseurDataContext" />
+  <nestedChildShapes>
+    <classShape Id="d24e0a48-b3eb-41b7-ab78-203ba6003dba" absoluteBounds="1.25, 3, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/ConoisseurDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5b5dd285-a4f5-4c8b-aa17-abd5b8803508" absoluteBounds="1.2649999999999997, 3.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fe17e756-a723-427b-bd89-730354fa3ab9" absoluteBounds="9.5, 3.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ConoisseurDataContext/CouponCode" />
+      <nestedChildShapes>
+        <elementListCompartment Id="36bfa51b-3186-4004-adeb-0252e48c552d" absoluteBounds="9.515, 4.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6846ec02-70b2-487f-b306-028ea6b3541a" absoluteBounds="9.5, 1.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/ConoisseurDataContext/CouponType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f2ba4ce7-35a2-46bc-895e-ceb0d62e5200" absoluteBounds="9.515, 1.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3aa49645-9b6f-44de-8e9c-16708ee20eca" absoluteBounds="4, 2.375, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/ConoisseurDataContext/Order" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4c0f6ab3-92ba-4a16-bfef-547b488bafef" absoluteBounds="4.015, 2.835, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="da99bbbf-62f8-4a91-95af-f5227ab55ec7" absoluteBounds="5.375, 6.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ConoisseurDataContext/OrderProduct" />
+      <nestedChildShapes>
+        <elementListCompartment Id="47906c51-30f5-474f-9c2d-5a4a4ecfd6cf" absoluteBounds="5.39, 6.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b991c3e8-2ca0-4e04-b542-e6d45d35a060" absoluteBounds="6.5, 1.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/ConoisseurDataContext/ProductCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="aff70c05-3148-49e4-b3d7-77ecd2214c25" absoluteBounds="6.5150000000000006, 1.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(10.5 : 2.8862939453125); (10.5 : 3.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ConoisseurDataContext/CouponType/CouponType_CouponCode" />
+      <nodes>
+        <classShapeMoniker Id="6846ec02-70b2-487f-b306-028ea6b3541a" />
+        <classShapeMoniker Id="fe17e756-a723-427b-bd89-730354fa3ab9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.25 : 3.88544840494792); (4 : 3.88544840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ConoisseurDataContext/User/User_Order" />
+      <nodes>
+        <classShapeMoniker Id="d24e0a48-b3eb-41b7-ab78-203ba6003dba" />
+        <classShapeMoniker Id="3aa49645-9b6f-44de-8e9c-16708ee20eca" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.6875 : 5.68430826822917); (5.6875 : 6.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ConoisseurDataContext/Order/Order_OrderProduct" />
+      <nodes>
+        <classShapeMoniker Id="3aa49645-9b6f-44de-8e9c-16708ee20eca" />
+        <classShapeMoniker Id="da99bbbf-62f8-4a91-95af-f5227ab55ec7" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="063471e2-0a29-4b6d-952d-0ec24be5e638" absoluteBounds="6.5, 3.375, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/ConoisseurDataContext/Product" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6133a86c-4c81-4b34-907d-6e17675e9809" absoluteBounds="6.515, 3.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.9375 : 5.53049967447917); (6.9375 : 6.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ConoisseurDataContext/Product/Product_OrderProduct" />
+      <nodes>
+        <classShapeMoniker Id="063471e2-0a29-4b6d-952d-0ec24be5e638" />
+        <classShapeMoniker Id="da99bbbf-62f8-4a91-95af-f5227ab55ec7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.5 : 4.41429768880208); (8.5 : 4.41429768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ConoisseurDataContext/CouponCode/CouponCode_Product" />
+      <nodes>
+        <classShapeMoniker Id="fe17e756-a723-427b-bd89-730354fa3ab9" />
+        <classShapeMoniker Id="063471e2-0a29-4b6d-952d-0ec24be5e638" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.5 : 2.8862939453125); (7.5 : 3.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ConoisseurDataContext/ProductCategory/ProductCategory_Product" />
+      <nodes>
+        <classShapeMoniker Id="b991c3e8-2ca0-4e04-b542-e6d45d35a060" />
+        <classShapeMoniker Id="063471e2-0a29-4b6d-952d-0ec24be5e638" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

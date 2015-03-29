@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A44217CB-6C9F-443F-95D8-79A1B25E5E64}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApplication</RootNamespace>
+    <AssemblyName>WebApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\About.aspx" />
+    <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="Pages\Contact.aspx" />
+    <Content Include="Pages\Gallery.aspx" />
+    <Content Include="Pages\Home.aspx" />
+    <Content Include="Pages\Menu.aspx" />
+    <Content Include="Pages\Stores.aspx" />
+    <Content Include="Resources\Images\bg.png" />
+    <Content Include="Resources\Images\blank.gif" />
+    <Content Include="Resources\Images\blockquote.png" />
+    <Content Include="Resources\Images\fancybox-x.png" />
+    <Content Include="Resources\Images\fancybox-y.png" />
+    <Content Include="Resources\Images\fancybox.png" />
+    <Content Include="Resources\Images\fancy_close.png" />
+    <Content Include="Resources\Images\fancy_loading.png" />
+    <Content Include="Resources\Images\fancy_nav_left.png" />
+    <Content Include="Resources\Images\fancy_nav_right.png" />
+    <Content Include="Resources\Images\fancy_shadow_e.png" />
+    <Content Include="Resources\Images\fancy_shadow_n.png" />
+    <Content Include="Resources\Images\fancy_shadow_ne.png" />
+    <Content Include="Resources\Images\fancy_shadow_nw.png" />
+    <Content Include="Resources\Images\fancy_shadow_s.png" />
+    <Content Include="Resources\Images\fancy_shadow_se.png" />
+    <Content Include="Resources\Images\fancy_shadow_sw.png" />
+    <Content Include="Resources\Images\fancy_shadow_w.png" />
+    <Content Include="Resources\Images\fancy_title_left.png" />
+    <Content Include="Resources\Images\fancy_title_main.png" />
+    <Content Include="Resources\Images\fancy_title_over.png" />
+    <Content Include="Resources\Images\fancy_title_right.png" />
+    <Content Include="Resources\Images\gallery\1.jpeg" />
+    <Content Include="Resources\Images\gallery\2.jpg" />
+    <Content Include="Resources\Images\gallery\3.jpeg" />
+    <Content Include="Resources\Images\gallery\4.jpg" />
+    <Content Include="Resources\Images\gallery\5.jpeg" />
+    <Content Include="Resources\Images\gallery\6.jpg" />
+    <Content Include="Resources\Images\gallery\7.jpeg" />
+    <Content Include="Resources\Images\gallery\8.jpg" />
+    <Content Include="Resources\Images\home\1.jpg" />
+    <Content Include="Resources\Images\home\2.jpg" />
+    <Content Include="Resources\Images\home\3.jpg" />
+    <Content Include="Resources\Images\home\4.jpg" />
+    <Content Include="Resources\Images\label.png" />
+    <Content Include="Resources\Images\loading.gif" />
+    <Content Include="Resources\Images\menu\pizza.jpeg" />
+    <Content Include="Resources\Images\menu\pizza2.jpeg" />
+    <Content Include="Resources\Images\menu\pizza3.jpeg" />
+    <Content Include="Resources\Images\menu\pizza4.jpeg" />
+    <Content Include="Resources\Images\next.png" />
+    <Content Include="Resources\Images\noise.png" />
+    <Content Include="Resources\Images\pause.png" />
+    <Content Include="Resources\Images\play.png" />
+    <Content Include="Resources\Images\prev.png" />
+    <Content Include="Resources\Images\social.png" />
+    <Content Include="Resources\Images\star_empty.png" />
+    <Content Include="Resources\Images\star_full.png" />
+    <Content Include="Resources\Images\star_half_full.png" />
+    <Content Include="Resources\Images\tip-yellowsimple_arrows.gif" />
+    <Content Include="Resources\Scripts\jquery-1.8.3.js" />
+    <Content Include="Resources\Scripts\jquery-1.8.3.min.js" />
+    <Content Include="Resources\Scripts\jquery.fancybox-1.3.4.pack.js" />
+    <Content Include="Resources\Scripts\jquery.pikachoose.js" />
+    <Content Include="Resources\Scripts\script.js" />
+    <Content Include="Resources\Styles\base.css" />
+    <Content Include="Resources\Styles\jquery.fancybox-1.3.4.css" />
+    <Content Include="Resources\Styles\Site.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Resources\Styles\style.css" />
+    <Content Include="UserControls\Footer.ascx" />
+    <Content Include="UserControls\MainMenu.ascx" />
+    <Content Include="UserControls\MainSlider.ascx" />
+    <Content Include="UserControls\ShoppingCart.ascx" />
+    <Content Include="UserControls\SidebarWidget.ascx" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Master\About.master.cs">
+      <DependentUpon>About.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Master\About.master.designer.cs">
+      <DependentUpon>About.master</DependentUpon>
+    </Compile>
+    <Compile Include="App_Master\Contact.master.cs">
+      <DependentUpon>Contact.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Master\Contact.master.designer.cs">
+      <DependentUpon>Contact.master</DependentUpon>
+    </Compile>
+    <Compile Include="App_Master\Gallery.master.cs">
+      <DependentUpon>Gallery.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Master\Gallery.master.designer.cs">
+      <DependentUpon>Gallery.master</DependentUpon>
+    </Compile>
+    <Compile Include="App_Master\Home.master.cs">
+      <DependentUpon>Home.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Master\Home.master.designer.cs">
+      <DependentUpon>Home.master</DependentUpon>
+    </Compile>
+    <Compile Include="App_Master\Main.Master.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Master\Main.Master.designer.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="App_Master\Menu.master.cs">
+      <DependentUpon>Menu.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Master\Menu.master.designer.cs">
+      <DependentUpon>Menu.master</DependentUpon>
+    </Compile>
+    <Compile Include="App_Master\Stores.master.cs">
+      <DependentUpon>Stores.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Master\Stores.master.designer.cs">
+      <DependentUpon>Stores.master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Gallery.aspx.cs">
+      <DependentUpon>Gallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Gallery.aspx.designer.cs">
+      <DependentUpon>Gallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Menu.aspx.cs">
+      <DependentUpon>Menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Menu.aspx.designer.cs">
+      <DependentUpon>Menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Stores.aspx.cs">
+      <DependentUpon>Stores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Stores.aspx.designer.cs">
+      <DependentUpon>Stores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="App_Master\Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Master\Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Footer.ascx.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Footer.ascx.designer.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MainMenu.ascx.cs">
+      <DependentUpon>MainMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\MainMenu.ascx.designer.cs">
+      <DependentUpon>MainMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MainSlider.ascx.cs">
+      <DependentUpon>MainSlider.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\MainSlider.ascx.designer.cs">
+      <DependentUpon>MainSlider.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ShoppingCart.ascx.cs">
+      <DependentUpon>ShoppingCart.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ShoppingCart.ascx.designer.cs">
+      <DependentUpon>ShoppingCart.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SidebarWidget.ascx.cs">
+      <DependentUpon>SidebarWidget.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SidebarWidget.ascx.designer.cs">
+      <DependentUpon>SidebarWidget.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Web.config" />
+    <Content Include="App_Master\Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Master\Main.Master" />
+    <Content Include="App_Master\Home.master" />
+    <Content Include="App_Master\About.master" />
+    <Content Include="App_Master\Menu.master" />
+    <Content Include="App_Master\Gallery.master" />
+    <Content Include="App_Master\Stores.master" />
+    <Content Include="App_Master\Contact.master" />
+    <None Include="Resources\Styles\Lobster_1.3-webfont.eot" />
+    <None Include="Resources\Styles\Lobster_1.3-webfont.ttf" />
+    <None Include="Resources\Styles\Lobster_1.3-webfont.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Conoisseur.Dal\Conoisseur.Dal.csproj">
+      <Project>{04B4B997-7023-48C4-868F-170D9D4F375A}</Project>
+      <Name>Conoisseur.Dal</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55747</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,17 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/App_Master/Main.Master" AutoEventWireup="true"
+    CodeBehind="Home.master.cs" Inherits="WebApplication.App_Master.Home" %>
+
+<%@ Register TagPrefix="ucMainSlider" TagName="MainSlider" Src="../UserControls/MainSlider.ascx" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">
+    <div class="wrapper">
+        <ucMainSlider:MainSlider ID="mainSlider" runat="server" />
+        <div class="clear">
+        </div>
+        <div class="border">
+        </div>
+        <asp:ContentPlaceHolder ID="cphContent" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+</asp:Content>

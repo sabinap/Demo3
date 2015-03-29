@@ -1,0 +1,18 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/App_Master/Main.Master" AutoEventWireup="true"
+    CodeBehind="About.master.cs" Inherits="WebApplication.App_Master.About" %>
+
+<%@ Register TagPrefix="ucSidebarWidget" TagName="SidebarWidget" Src="../UserControls/SidebarWidget.ascx" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">
+    <div class="wrapper">
+        <div class="border">
+        </div>
+        <asp:ContentPlaceHolder ID="cphContent" runat="server">
+        </asp:ContentPlaceHolder>
+        <ucSidebarWidget:SidebarWidget ID="sidebarWidget" runat="server" />
+        <div class="border2">
+        </div>
+        <br>
+    </div>
+</asp:Content>
