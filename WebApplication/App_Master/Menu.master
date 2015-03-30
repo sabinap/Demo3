@@ -16,6 +16,6 @@
         <ucShoppingCart:ShoppingCart ID="shoppingCart" runat="server" />
         <div class="border2">
         </div>
-        <br>
+        <br />
     </div>
 </asp:Content>

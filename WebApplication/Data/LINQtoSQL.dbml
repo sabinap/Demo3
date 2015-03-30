@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="F:\ASP_NET\DEMO3\DB\CONOISSEUR.MDF" Class="LINQtoSQLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\v11.0;Initial Catalog=F:\ASP_NET\DEMO3\DB\CONOISSEUR.MDF;Integrated Security=True;Connect Timeout=30" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="F__ASP_NET_DEMO3_DB_CONOISSEUR_MDFConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.coupon_codes" Member="CouponCodes">
+    <Type Name="CouponCode">
+      <Column Name="id" Member="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Member="Name" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="coupon_type" Member="CouponType" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="deduct" Member="Deduct" Type="System.Decimal" DbType="Decimal(4,2)" CanBeNull="true" />
+      <Association Name="CouponCode_Product" Member="Products" ThisKey="Id" OtherKey="CouponId" Type="Product" />
+      <Association Name="CouponType_CouponCode" Member="CouponType1" ThisKey="CouponType" OtherKey="Id" Type="CouponType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.coupon_type" Member="CouponTypes">
+    <Type Name="CouponType">
+      <Column Name="id" Member="Id" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Member="Name" Type="System.String" DbType="VarChar(512)" CanBeNull="true" />
+      <Column Name="description" Member="Description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Association Name="CouponType_CouponCode" Member="CouponCodes" ThisKey="Id" OtherKey="CouponType" Type="CouponCode" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[order]" Member="Orders">
+    <Type Name="Order">
+      <Column Name="id" Member="Id" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="order_no" Member="OrderNo" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="user_id" Member="UserId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="is_Guest" Member="IsGuest" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="address" Member="Address" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="card_name" Member="CardName" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="card_number" Member="CardNumber" Type="System.String" DbType="NChar(16)" CanBeNull="true" />
+      <Column Name="card_cvv" Member="CardCVV" Type="System.Decimal" DbType="Decimal(4,0)" CanBeNull="true" />
+      <Column Name="card_expiration_month" Member="CardExpirationMonth" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="card_expiration_year" Member="CardExpirationYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="subtotal" Member="Subtotal" Type="System.Decimal" DbType="Decimal(4,2)" CanBeNull="true" />
+      <Column Name="taxes" Member="Taxes" Type="System.Decimal" DbType="Decimal(4,2)" CanBeNull="true" />
+      <Column Name="total" Member="Total" Type="System.Decimal" DbType="Decimal(4,2)" CanBeNull="true" />
+      <Association Name="Order_OrderProduct" Member="OrderProducts" ThisKey="Id" OtherKey="OrderId" Type="OrderProduct" />
+      <Association Name="User_Order" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.order_product" Member="OrderProducts">
+    <Type Name="OrderProduct">
+      <Column Name="id" Member="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="order_id" Member="OrderId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="product_id" Member="ProductId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="quantity" Member="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Order_OrderProduct" Member="Order" ThisKey="OrderId" OtherKey="Id" Type="Order" IsForeignKey="true" />
+      <Association Name="Product_OrderProduct" Member="Product" ThisKey="ProductId" OtherKey="Id" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.product" Member="Products">
+    <Type Name="Product">
+      <Column Name="id" Member="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="category_id" Member="CategoryId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="name" Member="Name" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="description" Member="Description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="price" Member="Price" Type="System.Decimal" DbType="Decimal(4,2)" CanBeNull="true" />
+      <Column Name="coupon_id" Member="CouponId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="image" Member="Image" Type="System.String" DbType="VarChar(512)" CanBeNull="true" />
+      <Association Name="Product_OrderProduct" Member="OrderProducts" ThisKey="Id" OtherKey="ProductId" Type="OrderProduct" />
+      <Association Name="CouponCode_Product" Member="CouponCode" ThisKey="CouponId" OtherKey="Id" Type="CouponCode" IsForeignKey="true" />
+      <Association Name="ProductCategory_Product" Member="ProductCategory" ThisKey="CategoryId" OtherKey="Id" Type="ProductCategory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.product_category" Member="ProductCategories">
+    <Type Name="ProductCategory">
+      <Column Name="id" Member="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Member="Name" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="description" Member="Description" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Association Name="ProductCategory_Product" Member="Products" ThisKey="Id" OtherKey="CategoryId" Type="Product" />
+    </Type>
+  </Table>
+  <Table Name="dbo.users" Member="Users">
+    <Type Name="User">
+      <Column Name="id" Member="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="user_id" Member="UserId" Type="System.String" DbType="VarChar(36) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Member="Password" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="address" Member="Address" Type="System.String" DbType="VarChar(512)" CanBeNull="true" />
+      <Column Name="phone" Member="Phone" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="User_Order" Member="Orders" ThisKey="Id" OtherKey="UserId" Type="Order" />
+    </Type>
+  </Table>
+</Database>

@@ -5,13 +5,7 @@
     <script type="text/javascript">
 
         function Update() {
-            //            console.log($('#btnUpdate'));
-
             $('#btnUpdate').click();
-
-            //btnName = $get("<=btnUpdate.ClientID%>").name;
-            //            console.log(btnName);
-            //            __doPostBack(btnName, "");
         }
 
     </script>

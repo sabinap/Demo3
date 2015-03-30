@@ -4,96 +4,95 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Conoisseur.Dal;
+using WebApplication.Data;
+//using Conoisseur.Dal;
 
 namespace WebApplication.Pages
 {
     public partial class Menu : Page
     {
-        #region Fields
-
-        ConoisseurDataContext dataContext;
-
-        #endregion
 
         #region EventHandlers
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            dataContext = new ConoisseurDataContext();
-            BindItems();
+            using (LINQtoSQLDataContext dataContext = new LINQtoSQLDataContext())
+            {
 
+                BindItems();
 
-            
+                var pnlShoppingCart = Utils.Utils.FindControlIterative(Page, "pnlShoppingCart") as UpdatePanel;
+                var btnUpdate = Utils.Utils.FindControlIterative(Page, "btnUpdate") as Button;
 
-            var pnlShoppingCart = Utils.Utils.FindControlIterative(Page, "pnlShoppingCart") as UpdatePanel;
-            var btnUpdate = Utils.Utils.FindControlIterative(Page, "btnUpdate") as Button;
+                var scriptManager = Utils.Utils.FindControlIterative(Page, "scriptManager") as ScriptManager;
+                if (null != scriptManager && null != btnUpdate)
+                    scriptManager.RegisterAsyncPostBackControl(btnUpdate);
 
-            var scriptManager = Utils.Utils.FindControlIterative(Page,"scriptManager") as ScriptManager;
-            if (null != scriptManager && null!=btnUpdate)
-                scriptManager.RegisterAsyncPostBackControl(btnUpdate);
+                //if (null != pnlShoppingCart)
+                //{
+                //    AsyncPostBackTrigger trigger = new AsyncPostBackTrigger();
 
-            //if (null != pnlShoppingCart)
-            //{
-            //    AsyncPostBackTrigger trigger = new AsyncPostBackTrigger();
+                //    //Sets the control that will trigger a post-back on the UpdatePanel
+                //    trigger.ControlID = "btnOrder";
 
-            //    //Sets the control that will trigger a post-back on the UpdatePanel
-            //    trigger.ControlID = "btnOrder";
+                //    //Sets the event name of the control
+                //    trigger.EventName = "Click";
 
-            //    //Sets the event name of the control
-            //    trigger.EventName = "Click";
-
-            //    //Adds the trigger to the UpdatePanels' triggers collection
-            //    pnlShoppingCart.Triggers.Add(trigger);
-            //}
+                //    //Adds the trigger to the UpdatePanels' triggers collection
+                //    pnlShoppingCart.Triggers.Add(trigger);
+                //}
+            }
         }
 
         protected void btnOrder_Click(object sender, EventArgs e)
         {
-            Button btnOrder = sender as Button;
-            if (btnOrder == null)
-                return;
-
-            long prodId = Convert.ToInt64(btnOrder.ID.Replace("btnOrder", ""));
-
-            Product product = dataContext.Products.FirstOrDefault(pred => pred.Id == prodId);
-
-            Utils.Order currentOrder = Session["Order"] as Utils.Order;
-            if (null == currentOrder)
+            using (LINQtoSQLDataContext dataContext = new LINQtoSQLDataContext())
             {
-                currentOrder = new Utils.Order();
-                currentOrder.products = new List<Utils.Product>();
-            }
+                Button btnOrder = sender as Button;
+                if (btnOrder == null)
+                    return;
 
-            bool found = false;
+                long prodId = Convert.ToInt64(btnOrder.ID.Replace("btnOrder", ""));
 
-            foreach (Utils.Product p in currentOrder.products)
-            {
-                if (p.ProductId == prodId)
+                Product product = dataContext.Products.FirstOrDefault(pred => pred.Id == prodId);
+
+                Utils.Order currentOrder = Session["Order"] as Utils.Order;
+                if (null == currentOrder)
                 {
-                    p.Quantity++;
-                    found = true;
-                    break;
+                    currentOrder = new Utils.Order();
+                    currentOrder.products = new List<Utils.Product>();
                 }
+
+                bool found = false;
+
+                foreach (Utils.Product p in currentOrder.products)
+                {
+                    if (p.ProductId == prodId)
+                    {
+                        p.Quantity++;
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (found == false)
+                {
+                    Utils.Product prod = new Utils.Product();
+                    prod.Category = product.CategoryId;
+                    if (null != product.CouponCode)
+                        prod.Coupon = product.CouponCode.Id;
+                    prod.Name = product.Name;
+                    prod.Price = (decimal)product.Price;
+                    prod.ProductId = product.Id;
+                    prod.Quantity = 1;
+
+                    currentOrder.products.Add(prod);
+                }
+
+                Session["Order"] = currentOrder;
+
+                rptItems.DataBind();
             }
-
-            if (found == false)
-            {
-                Utils.Product prod = new Utils.Product();
-                prod.Category = product.CategoryId;
-                if (null != product.CouponCode)
-                    prod.Coupon = product.CouponCode.Id;
-                prod.Name = product.Name;
-                prod.Price = (decimal)product.Price;
-                prod.ProductId = product.Id;
-                prod.Quantity = 1;
-
-                currentOrder.products.Add(prod);
-            }
-
-            Session["Order"] = currentOrder;
-            
-            rptItems.DataBind();
         }
 
         protected void rptItems_DataBound(object sender, RepeaterItemEventArgs e)
@@ -112,9 +111,20 @@ namespace WebApplication.Pages
 
         private void BindItems()
         {
-            List<Product> products = dataContext.Products.ToList();
-            rptItems.DataSource = products;
-            rptItems.DataBind();
+            //EF
+            //using (ConoisseurEntities dbContext = new ConoisseurEntities()) {
+            //    List<product> efProducts = dbContext.products.ToList();
+            //    rptItems.DataSource = efProducts;
+            //    rptItems.DataBind();
+            //}
+
+            //LINQ to SQL
+            using (LINQtoSQLDataContext dataContext = new LINQtoSQLDataContext())
+            {
+                List<Product> products = dataContext.Products.ToList();
+                rptItems.DataSource = products;
+                rptItems.DataBind();
+            }
         }
 
         #endregion

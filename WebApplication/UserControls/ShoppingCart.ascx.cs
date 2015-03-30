@@ -26,11 +26,14 @@ namespace WebApplication.UserControls
             if (null == product)
                 return;
 
+            HiddenField hdnId = e.Item.FindControl("hdnId") as HiddenField;
             Literal ltName = e.Item.FindControl("ltName") as Literal;
             Literal ltDescription = e.Item.FindControl("ltDescription") as Literal;
 
+
             ltName.Text = product.Name;
             ltDescription.Text = product.Price.ToString();
+            hdnId.Value = product.ProductId.ToString();
         }
 
         protected void btnProceed_Click(object sender, EventArgs e)

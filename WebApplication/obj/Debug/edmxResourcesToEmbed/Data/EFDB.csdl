@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ConoisseurModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="coupon_codes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="coupon_type" Type="Int64" Nullable="false" />
+    <Property Name="deduct" Type="Decimal" Precision="4" Scale="2" />
+    <NavigationProperty Name="coupon_type1" Relationship="Self.FK_coupon_codes_coupon_type" FromRole="coupon_codes" ToRole="coupon_type" />
+    <NavigationProperty Name="products" Relationship="Self.FK_product_coupon_codes" FromRole="coupon_codes" ToRole="product" />
+  </EntityType>
+  <EntityType Name="coupon_type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="coupon_codes" Relationship="Self.FK_coupon_codes_coupon_type" FromRole="coupon_type" ToRole="coupon_codes" />
+  </EntityType>
+  <EntityType Name="order">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" />
+    <Property Name="order_no" Type="Int64" Nullable="false" />
+    <Property Name="user_id" Type="Int64" Nullable="false" />
+    <Property Name="is_Guest" Type="Boolean" />
+    <Property Name="address" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="card_name" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="card_number" Type="String" MaxLength="16" FixedLength="true" Unicode="true" />
+    <Property Name="card_cvv" Type="Decimal" Precision="4" Scale="0" />
+    <Property Name="card_expiration_month" Type="Int32" />
+    <Property Name="card_expiration_year" Type="Int32" />
+    <Property Name="subtotal" Type="Decimal" Precision="4" Scale="2" />
+    <Property Name="taxes" Type="Decimal" Precision="4" Scale="2" />
+    <Property Name="total" Type="Decimal" Precision="4" Scale="2" />
+    <NavigationProperty Name="order_product" Relationship="Self.FK_order_product_order" FromRole="order" ToRole="order_product" />
+    <NavigationProperty Name="user" Relationship="Self.FK_order_users" FromRole="order" ToRole="users" />
+  </EntityType>
+  <EntityType Name="order_product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="order_id" Type="Int64" />
+    <Property Name="product_id" Type="Int64" />
+    <Property Name="quantity" Type="Int32" />
+    <NavigationProperty Name="order" Relationship="Self.FK_order_product_order" FromRole="order_product" ToRole="order" />
+    <NavigationProperty Name="product" Relationship="Self.FK_order_product_product" FromRole="order_product" ToRole="product" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="category_id" Type="Int64" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="price" Type="Decimal" Precision="4" Scale="2" />
+    <Property Name="coupon_id" Type="Int64" />
+    <Property Name="image" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="coupon_codes" Relationship="Self.FK_product_coupon_codes" FromRole="product" ToRole="coupon_codes" />
+    <NavigationProperty Name="order_product" Relationship="Self.FK_order_product_product" FromRole="product" ToRole="order_product" />
+    <NavigationProperty Name="product_category" Relationship="Self.FK_product_product_category" FromRole="product" ToRole="product_category" />
+  </EntityType>
+  <EntityType Name="product_category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="products" Relationship="Self.FK_product_product_category" FromRole="product_category" ToRole="product" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="String" MaxLength="36" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="orders" Relationship="Self.FK_order_users" FromRole="users" ToRole="order" />
+  </EntityType>
+  <Association Name="FK_coupon_codes_coupon_type">
+    <End Role="coupon_type" Type="Self.coupon_type" Multiplicity="1" />
+    <End Role="coupon_codes" Type="Self.coupon_codes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="coupon_type">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="coupon_codes">
+        <PropertyRef Name="coupon_type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_product_coupon_codes">
+    <End Role="coupon_codes" Type="Self.coupon_codes" Multiplicity="0..1" />
+    <End Role="product" Type="Self.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="coupon_codes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="coupon_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_order_product_order">
+    <End Role="order" Type="Self.order" Multiplicity="0..1" />
+    <End Role="order_product" Type="Self.order_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="order">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="order_product">
+        <PropertyRef Name="order_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_order_users">
+    <End Role="users" Type="Self.user" Multiplicity="1" />
+    <End Role="order" Type="Self.order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="order">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_order_product_product">
+    <End Role="product" Type="Self.product" Multiplicity="0..1" />
+    <End Role="order_product" Type="Self.order_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="order_product">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_product_product_category">
+    <End Role="product_category" Type="Self.product_category" Multiplicity="1" />
+    <End Role="product" Type="Self.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product_category">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ConoisseurEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="coupon_codes" EntityType="Self.coupon_codes" />
+    <EntitySet Name="coupon_type" EntityType="Self.coupon_type" />
+    <EntitySet Name="orders" EntityType="Self.order" />
+    <EntitySet Name="order_product" EntityType="Self.order_product" />
+    <EntitySet Name="products" EntityType="Self.product" />
+    <EntitySet Name="product_category" EntityType="Self.product_category" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <AssociationSet Name="FK_coupon_codes_coupon_type" Association="Self.FK_coupon_codes_coupon_type">
+      <End Role="coupon_type" EntitySet="coupon_type" />
+      <End Role="coupon_codes" EntitySet="coupon_codes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_product_coupon_codes" Association="Self.FK_product_coupon_codes">
+      <End Role="coupon_codes" EntitySet="coupon_codes" />
+      <End Role="product" EntitySet="products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_order_product_order" Association="Self.FK_order_product_order">
+      <End Role="order" EntitySet="orders" />
+      <End Role="order_product" EntitySet="order_product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_order_users" Association="Self.FK_order_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="order" EntitySet="orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_order_product_product" Association="Self.FK_order_product_product">
+      <End Role="product" EntitySet="products" />
+      <End Role="order_product" EntitySet="order_product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_product_product_category" Association="Self.FK_product_product_category">
+      <End Role="product_category" EntitySet="product_category" />
+      <End Role="product" EntitySet="products" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

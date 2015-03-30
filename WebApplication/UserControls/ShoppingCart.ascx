@@ -2,7 +2,7 @@
     Inherits="WebApplication.UserControls.ShoppingCart" %>
 <script type="text/javascript">
     function UpdateShoppingCart() {
-        alert("updated");
+        //alert("updated");
     }
 </script>
 
@@ -25,6 +25,7 @@
             <asp:Repeater runat="server" ID="rptItems" OnItemDataBound="rptItems_DataBound">
                 <ItemTemplate>
                     <li><a href="#">
+                        <asp:HiddenField ID="hdnId" runat="server" />
                         <asp:Literal runat="server" ID="ltName"></asp:Literal></a><br />
                         <asp:Literal runat="server" ID="ltDescription"></asp:Literal>
                     </li>
@@ -32,9 +33,11 @@
                 <FooterTemplate>
                 </FooterTemplate>
             </asp:Repeater>
-            <asp:Button ID="btnProceed" runat="server" OnClick="btnProceed_Click" Text="Order" ClientIDMode="Static"/>
+            
         </ContentTemplate>
     </asp:UpdatePanel>
+    <asp:Button ID="btnProceed" runat="server" OnClick="btnProceed_Click" Text="Order" ClientIDMode="Static" />
+
     <!--
         <ul class="blog">
          <li><a href="#">Lorem Ipsum Dolor</a><br />

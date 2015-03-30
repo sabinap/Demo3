@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="070143aaa19844009f69d708b294300a" Name="Diagram1">
+        <EntityTypeShape EntityType="ConoisseurModel.coupon_codes" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConoisseurModel.coupon_type" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConoisseurModel.order" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConoisseurModel.order_product" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConoisseurModel.product" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConoisseurModel.product_category" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConoisseurModel.user" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <AssociationConnector Association="ConoisseurModel.FK_coupon_codes_coupon_type" ManuallyRouted="false" />
+        <AssociationConnector Association="ConoisseurModel.FK_product_coupon_codes" ManuallyRouted="false" />
+        <AssociationConnector Association="ConoisseurModel.FK_order_product_order" ManuallyRouted="false" />
+        <AssociationConnector Association="ConoisseurModel.FK_order_users" ManuallyRouted="false" />
+        <AssociationConnector Association="ConoisseurModel.FK_order_product_product" ManuallyRouted="false" />
+        <AssociationConnector Association="ConoisseurModel.FK_product_product_category" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
